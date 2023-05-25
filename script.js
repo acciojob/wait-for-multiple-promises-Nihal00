@@ -1,17 +1,51 @@
 //your JS code here. If required.
-const output document.getElementById('output');
+const output = document.getElementById('output');
+// const table = document.querySelector('table');
 
-const promises = [];
+const row = output.insertRow(-1);
+const col1 = row.insertCell(0);
+const col2 = row.insertCell(1);
+col1.innerText = "Loading...";
+col2.innerText = "Loading...";
 
-const prom1 = new Promise((resolve) => setTimeout(resolve, 1000, "Promise 1"));
-promises.push(prom1);
+const promises = [
+	new Promise (resolve => {
+		setTimeout(() => {
+			resolve();
+			return "Promise 1";
+		}, Math.random() * 3000);
+	}),
 
-const prom2 = new Promise((resolve) => setTimeout(resolve, 2000, "Promise 2"));
-promises.push(prom2);
+	new Promise (resolve => {
+		setTimeout(() => {
+			resolve();
+		}, Math.random() * 3000);
+	}),
 
-const prom3 = new Promise((resolve) => setTimeout(resolve, 3000, "Promise 3"));
-promises.push(prom3);
+	new Promise (resolve => {
+		setTimeout(() => {
+			resolve()
+		}, Math.random() * 3000);
+	})
+];
 
-Promise.all(promises).then((value) => {
-	document.getElementById('')
+const timeArray = [];
+Promise.all(promises).then((result) => {
+
+	row.remove();
+
+	const start = performance.now();
+	const tableRow = output.insertRow(-1);
+	const tableCel1 = tableRow.insertCell(0);
+	const tableCel2 = tableRow.insertCell(1);
+	const end = performance.now();
+	const time = end - start;
+	timeArray.push(time);
+	tableCel1.innerText = value;
 });
+
+
+
+
+
+
