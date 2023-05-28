@@ -20,7 +20,7 @@ for(let i=0; i<3; i++){
 		}, ((i+1) *1000));
 	}));
 }
-
+ 
 Promise.all(promises).then(function (results) {
 	let totalTime = results.reduce(function (a, b) {
 		return a+b;
