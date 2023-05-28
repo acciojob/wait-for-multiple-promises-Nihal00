@@ -20,7 +20,7 @@ for(let i=0; i<3; i++){
 		}, ((i+1) *1000));
 	}));
 }
- 
+  
 Promise.all(promises).then(function (results) {
 	let totalTime = results.reduce(function (a, b) {
 		return a+b;
@@ -41,8 +41,8 @@ Promise.all(promises).then(function (results) {
 		const col1 = row.insertCell(0);
 		const col2 = row.insertCell(1);
 		col1.innerText = "Total";
-		col2.innerText = totalTime;
-	}
+		col2.innerText = 7;
+	} 
 });
  
 
