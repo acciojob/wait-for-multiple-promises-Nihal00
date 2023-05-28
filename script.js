@@ -16,7 +16,7 @@ for(let i=0; i<3; i++){
 		let randomNubmer = Math.floor(Math.random() * 3) +1;
       
 		setTimeout(function () {
-			resolve(i+1);
+			resolve(randomNubmer);
 		}, ((i+1) *1000));
 	}));
 }
@@ -32,7 +32,7 @@ Promise.all(promises).then(function (results) {
 		const row = output.insertRow(-1);
 		const col1 = row.insertCell(0);
 		const col2 = row.insertCell(1);
-		col1.innerText = "Promise " + (i+1);
+		col1.innerText = "Promise " + results.value;
 		col2.innerText = results[i];
 	}
 
