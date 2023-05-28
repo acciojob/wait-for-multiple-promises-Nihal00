@@ -25,7 +25,7 @@ Promise.all(promises).then(function (results) {
 	let totalTime = results.reduce(function (a, b) {
 		return a+b;
 	}, 0);
-	
+	 
 	loading.remove();
 	let i = 0;
 	for(i=0; i < results.length; i++) {
@@ -34,7 +34,7 @@ Promise.all(promises).then(function (results) {
 		const col2 = row.insertCell(1);
 		col1.innerText = "Promise " + results.value;
 		col2.innerText = results[i];
-	}
+	} 
 
 	if(i === 3){
 		const row = output.insertRow(-1);
