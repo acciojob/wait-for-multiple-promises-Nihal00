@@ -33,7 +33,7 @@ Promise.all(promises).then(function (results) {
 		const col1 = row.insertCell(0);
 		const col2 = row.insertCell(1);
 		col1.innerText = "Promise " + (i+1);
-		col2.innerText = results[i];
+		col2.innerText = parseInt(results[i]);
 	}
 
 	if(i === 3){
@@ -41,8 +41,8 @@ Promise.all(promises).then(function (results) {
 		const col1 = row.insertCell(0);
 		const col2 = row.insertCell(1);
 		col1.innerText = "Total";
-		col2.innerText = 7;
-	} 
+		col2.innerText = totalTime;
+	}
 });
  
 
