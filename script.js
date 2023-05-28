@@ -13,7 +13,7 @@ const promises = [];
 for(let i=0; i<3; i++){
 	promises.push(new Promise(function(resolve, reject) {
 
-		// let randomNubmer = Math.floor(Math.random() * 3) +1;
+		let randomNubmer = Math.floor(Math.random() * 3) +1;
       
 		setTimeout(function () {
 			resolve(i+1);
