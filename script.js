@@ -8,24 +8,30 @@ const loading = document.getElementById('loading');
 // col1.innerText = "Loading...";
 // col2.innerText = "Loading..."; 
 
-const promises = [];
+// const promises = [];
 
-for(let i=0; i<3; i++){
-	promises.push(new Promise(function(resolve, reject) {
+// for(let i=0; i<3; i++){
+// 	promises.push(new Promise(function(resolve, reject) {
 
-		let randomNubmer = Math.floor(Math.random() * 3) +1;
+// 		let randomNubmer = Math.floor(Math.random() * 3) +1;
       
-		setTimeout(function () {
-			resolve(randomNubmer);
-		}, ((i+1) *1000));
-	}));
-}
+// 		setTimeout(function () {
+// 			resolve(randomNubmer);
+// 		}, ((i+1) *1000));
+// 	}));
+// }
+let randomNubmer = Math.floor(Math.random() * 3) +1;
+const promises = [
+  new Promise(resolve => setTimeout(() => resolve(randomNubmer), Math.random() * 3)),
+  new Promise(resolve => setTimeout(() => resolve(randomNubmer), Math.random() * 3)),
+  new Promise(resolve => setTimeout(() => resolve(randomNubmer), Math.random() * 3)),
+];
 
 Promise.all(promises).then(function (results) {
 	let totalTime = results.reduce(function (a, b) {
 		return a+b;
 	}, 0);
-	 
+	
 	loading.remove();
 	let i = 0;
 	for(i=0; i < results.length; i++) {
