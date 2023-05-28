@@ -1,11 +1,12 @@
 // //your JS code here. If required.
 
 const output = document.getElementById('output');
-const row = output.insertRow(-1);
-const col1 = row.insertCell(0);
-const col2 = row.insertCell(1);
-col1.innerText = "Loading...";
-col2.innerText = "Loading...";
+const loading = document.getElementById('loading');
+// const row = output.insertRow(-1);
+// const col1 = row.insertCell(0);
+// const col2 = row.insertCell(1);
+// col1.innerText = "Loading...";
+// col2.innerText = "Loading..."; 
 
 const promises = [];
 
@@ -25,7 +26,7 @@ Promise.all(promises).then(function (results) {
 		return a+b;
 	}, 0);
 	
-	row.remove();
+	loading.remove();
 	let i = 0;
 	for(i=0; i < results.length; i++) {
 		const row = output.insertRow(-1);
@@ -43,7 +44,7 @@ Promise.all(promises).then(function (results) {
 		col2.innerText = totalTime;
 	}
 });
-
+ 
 
 
 
