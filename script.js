@@ -8,24 +8,18 @@ const loading = document.getElementById('loading');
 // col1.innerText = "Loading...";
 // col2.innerText = "Loading..."; 
 
-// const promises = [];
+const promises = [];
 
-// for(let i=0; i<3; i++){
-// 	promises.push(new Promise(function(resolve, reject) {
+for(let i=0; i<3; i++){
+	promises.push(new Promise(function(resolve, reject) {
 
-// 		let randomNubmer = Math.floor(Math.random() * 3) +1;
+		let randomNubmer = Math.floor(Math.random() * 3) +1;
       
-// 		setTimeout(function () {
-// 			resolve(randomNubmer);
-// 		}, ((i+1) *1000));
-// 	}));
-// }
-let randomNubmer = Math.floor(Math.random() * 3) +1;
-const promises = [
-  new Promise(resolve => setTimeout(() => resolve(randomNubmer), Math.random() * 3)),
-  new Promise(resolve => setTimeout(() => resolve(randomNubmer), Math.random() * 3)),
-  new Promise(resolve => setTimeout(() => resolve(randomNubmer), Math.random() * 3)),
-];
+		setTimeout(function () {
+			resolve(randomNubmer);
+		}, ((i+1) *1000));
+	}));
+}
 
 Promise.all(promises).then(function (results) {
 	let totalTime = results.reduce(function (a, b) {
@@ -38,9 +32,9 @@ Promise.all(promises).then(function (results) {
 		const row = output.insertRow(-1);
 		const col1 = row.insertCell(0);
 		const col2 = row.insertCell(1);
-		col1.innerText = "Promise " + results.value;
+		col1.innerText = "Promise " + (i+1);
 		col2.innerText = results[i];
-	} 
+	}
 
 	if(i === 3){
 		const row = output.insertRow(-1);
